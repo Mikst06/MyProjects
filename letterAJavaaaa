@@ -1,0 +1,37 @@
+import static java.lang.System.out;
+
+public class HelloWorld {
+
+    public static void main(String[] args) {
+
+        int currentPlace, wysokoscBezWierzcholka;
+        char literaA = 'A', spacja = ' ';
+        int wysokoscLiteryA = 6;
+        int lewaKrawedz = (wysokoscLiteryA - 2);
+        int prawaKrawedz = (wysokoscLiteryA);
+
+        if (wysokoscLiteryA > 3) {
+            for (currentPlace = 0; currentPlace <= ((wysokoscLiteryA * 2) - 2); currentPlace++) { //petla dla wierzchołka
+                if (currentPlace != (wysokoscLiteryA - 1)) {
+                    out.print(spacja);
+                } else {
+                    out.print(literaA);
+                }
+            }
+
+            for (wysokoscBezWierzcholka = 0; wysokoscBezWierzcholka < wysokoscLiteryA; wysokoscBezWierzcholka++, lewaKrawedz--, prawaKrawedz++) {
+                out.print("\n");
+                for (currentPlace = 0; currentPlace <= ((wysokoscLiteryA * 2) - 2); currentPlace++) {
+                    if (currentPlace != lewaKrawedz && currentPlace != prawaKrawedz && wysokoscBezWierzcholka != (wysokoscLiteryA / 2) - 1) {
+                        out.print(spacja);
+                    } else if (currentPlace >= lewaKrawedz && currentPlace <= prawaKrawedz) {
+                        out.print(literaA);
+                    } else {
+                        out.print(spacja);
+                    }
+                }
+            }
+        } else
+            out.println("wysokoscLiteryA wynosi mniej niz 3. Dla takiej wysokosci nie moze powstac litera A");
+    }
+}
